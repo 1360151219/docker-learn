@@ -17,7 +17,7 @@ jobs:
       with:
           registry: registry.cn-hangzhou.aliyuncs.com
           username: 盐焗乳鸽还要砂锅
-          password: ${{ secrets.REGISTRY_TOKEN }}
+          password: ${{ secrets.PASSWORD }}
         
     - name: Build and push
       id: docker_build

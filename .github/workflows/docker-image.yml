@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@mastar
+    - uses: actions/checkout@v1
     - name: Deploy
       uses: appleboy/ssh-action@master
       with:
@@ -22,6 +22,7 @@ jobs:
           cd /var/lib/docker/actionsTest
           git clone https://github.com/1360151219/docker-learn.git
           docker build -t test .
+          docker run -d --name test-action -p 8083:8080 test
           
           
         

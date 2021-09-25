@@ -15,8 +15,8 @@ jobs:
     - name: Login to registry
       uses: docker/login-action@v1
       with:
-          registry: registry.cn-hangzhou.aliyuncs.com
-          username: 盐焗乳鸽还要砂锅
+          registry: registry.cn-beijing.aliyuncs.com
+          username: 盐焗乳鸽还要香锅
           password: ${{ secrets.PASSWORD }}
         
     - name: Build and push

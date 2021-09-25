@@ -14,13 +14,9 @@ jobs:
     - name: Deploy
       run: 
         docker version
-
-        docker login --username=盐焗乳鸽还要香锅 --password=${{ secrets.PASSWORD }} registry.cn-beijing.aliyuncs.com
+        docker login --username=盐焗乳鸽还要香锅 registry.cn-beijing.aliyuncs.com
         cd dockerlearn
-       
         docker build . --file Dockerfile --tag registry. cn-beijing.aliyuncs.com/dockerlearn
-
-          
         docker push registry.registry.cn-beijing.aliyuncs.com/dockerlearn
         echo 'succeed'
           

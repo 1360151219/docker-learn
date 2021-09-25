@@ -12,7 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Deploy
-      uses: appleboy/ssh-action@master
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - uses: easingthemes/ssh-deploy@v2.0.7
       with:
         host: ${{secrets.TOKEN}}
         username: ${{secrets.USERNAME}}
@@ -20,8 +21,6 @@ jobs:
         port: ${{secrets.PORT}}
         script: |
           cd /var/lib/docker/actionsTest
-          git clone https://github.com/1360151219/docker-learn.git
-          docker build -t test .
           docker run -d --name test-action -p 8083:8080 test
           
           

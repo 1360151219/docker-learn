@@ -16,12 +16,11 @@ jobs:
     - uses: appleboy/ssh-action@master
       with:
         host: ${{secrets.TOKEN}}
+        port: ${{secrets.PORT}}
         username: ${{secrets.USERNAME}}
         password: ${{secrets.PASSWORD}}
-        port: ${{secrets.PORT}}
         script: |
           cd /var/lib/docker/actionsTest
-          docker run -d --name test-action -p 8083:8080 test
           
 
         

@@ -25,7 +25,7 @@ jobs:
       with:
         push: true
         tags: registry.cn-beijing.aliyuncs.com/strk2/dockerlearn：latest
-          
+
 
         
       

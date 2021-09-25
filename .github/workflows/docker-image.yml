@@ -12,15 +12,17 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Deploy
-      run: docker build -t test .
-    - uses: appleboy/ssh-action@master
-      with:
-        host: ${{secrets.TOKEN}}
-        port: ${{secrets.PORT}}
-        username: ${{secrets.USERNAME}}
-        password: ${{secrets.PASSWORD}}
-        script: |
-          cd /var/lib/docker/actionsTest
+      run: 
+        docker version
+
+        docker login --username=盐焗乳鸽还要香锅 --password=${{ secrets.PASSWORD }} registry.cn-beijing.aliyuncs.com
+        cd dockerlearn
+       
+        docker build . --file Dockerfile --tag registry. cn-beijing.aliyuncs.com/dockerlearn
+
+          
+        docker push registry.registry.cn-beijing.aliyuncs.com/dockerlearn
+        echo 'succeed'
           
 
         

@@ -10,9 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - uses: actions/checkout@mastar
     - name: Deploy
       uses: appleboy/ssh-action@master
       with:
@@ -20,5 +18,11 @@ jobs:
         username: ${{secrets.USERNAME}}
         password: ${{secrets.PASSWORD}}
         port: ${{secrets.PORT}}
+        script: |
+          cd /var/lib/docker/actionsTest
+          git clone https://github.com/1360151219/docker-learn.git
+          docker build -t test .
+          
+          
         
       

@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: registry.cn-beijing.aliyuncs.com/strk2/dockerlearn：latest
+        tags: registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest
 
 
         

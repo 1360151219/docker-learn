@@ -38,6 +38,9 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            docker login --username=盐焗乳鸽还要香锅 --password-stdin=${{ secrets.PASSWORD }} registry.cn-beijing.aliyuncs.com
+            systemctl daemon-reload
+            sudo service docker restart
+            sudo service docker status 
+            docker login --username=盐焗乳鸽还要香锅 --password=${{ secrets.PASSWORD }} registry.cn-beijing.aliyuncs.com
             docker pull registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest
             docker run -d -p 8083:4000 registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest

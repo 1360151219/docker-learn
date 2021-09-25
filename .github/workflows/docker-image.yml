@@ -38,9 +38,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            docker stop $(docker ps --filter ancestor=registry.cn-beijing.aliyuncs.com/strk2/dockerlearn -q)
-            docker rm -f $(docker ps -a --filter ancestor=registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest -q)
-            docker rmi -f $(docker images registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest -q)
             docker login --username=${{ secrets.USERNAME }} --password=${{ secrets.PASSWORD }} registry.cn-beijing.aliyuncs.com
             docker pull registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest
             docker run -d -p 8083:4000 registry.cn-beijing.aliyuncs.com/strk2/dockerlearn:latest
